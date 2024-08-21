@@ -1,69 +1,157 @@
-<html>
-  <body>
-  <style>
-  .sub{
-  background-color: rgb(193,0,0);
-  color: white;
-  border:none;
-  height: 36px;
-  width: 105px;
-  border-radius:3px;
-  cursor:pointer;
-  transition: opacity 0.25s;
-  }
-  
-  .sub:hover {
-   opacity:0.6;
-  }
-  .sub:active{
-   opacity:0.3;
-  }
-  
-  
-  
-  .join{
-  background-color: rgb(255,255,255);
-  color: rgb(22,113,185);
-  border-style: solid;
-  border-width:1px;
-  border-color:rgb(22,113,185);
-  height: 36px;
-  width: 60px;
-  border-radius:3px;
-  cursor:pointer;
-  margin-left:8px;
-   transition: background-color 0.25s,
-   color 0.25s;
-   }
-  
-  .join:hover{
-  background-color:rgb(22,113,185);
-  color: white ;
-  }
-  .join:active{
-   opacity:0.6;
-   }
-   .twit {
-  background-color: rgb(2,137,255);
-  color: white;
-  border:none;
-  height: 36px;
-  width: 74px;
-  border-radius:18px;
-  cursor:pointer;
-  font-size:15px;
-  margin-left:8px;
-  transition: box-shadow 0.25s;
-  }
-  .twit:hover{
-   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  }
-  </style>
-   <a href="https://www.youtube.com/" target="blank">
-   <button class="sub" width= "350">SUBSCRIBE</button></a>
-   <button class="join">JOIN</button>
-    <button class="twit"><strong>Tweet</strong></button>
-   
-   </video>
-  </body>		  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Product Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
+main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-item h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.product-item .price {
+    color: #e67e22;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-item .description {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+</style>
+    <header>
+        <div class="container">
+            <h1>Used Product Marketplace</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Sell</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Available Products</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="product1.jpg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p class="price">$100</p>
+                    <p class="description">A brief description of product 1.</p>
+                </div>
+                <div class="product-item">
+                    <img src="product2.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p class="price">$150</p>
+                    <p class="description">A brief description of product 2.</p>
+                </div>
+                <div class="product-item">
+                    <img src="product3.jpg" alt="Product 3">
+                    <h3>Product 3</h3>
+                    <p class="price">$200</p>
+                    <p class="description">A brief description of product 3.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Used Product Marketplace. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
 </html>
