@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>/* General Reset */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark and Light Theme Variables */
+:root {
+    --bg-color-light: #ffffff;
+    --bg-color-dark: #000000; /* Updated background color to black */
+    --text-color-light: #333333;
+    --text-color-dark: #f1f1f1;
+    --primary-color-light: #4f4f4f; /* Changed to gray */
+    --primary-color-dark: #6b6b6b; /* Darker shade of gray */
+    --secondary-bg-light: #f8f9fa;
+    --secondary-bg-dark: #2e2e2e;
+}
+
+body.light-theme {
+    --bg-color: var(--bg-color-light);
+    --text-color: var(--text-color-light);
+}
+
+body.dark-theme {
+    --bg-color: var(--bg-color-dark);
+    --text-color: var(--text-color-dark);
+}
+
+/* Header Section */
+header {
+    background-color: #333333; /* Changed to gray */
+    color: white;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color:;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-item {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: #333333; /* Changed to gray */
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Chatbot Section */
+.chatbot-container {
+    margin-top: 50px;
+}
+
+.chatbot {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.chat-window {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-history {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.chat-message {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#user-input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#send-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333333; /* Changed to gray */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-btn:hover {
+    background-color: #333333; /* Changed to gray */
+}
+
+/* Footer */
+footer {
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+/* Animations */
+.contact-item:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.chat-window {
+    animation: popUp 0.5s ease-in-out;
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        width: 100%;
+    }
+
+    #user-input {
+        width: 70%;
+    }
+}
+
+</style>
+    <script>document.addEventListener("DOMContentLoaded", () => {
+    const chatWindow = document.getElementById("chat-window");
+    const chatHistory = document.getElementById("chat-history");
+    const userInput = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    sendBtn.addEventListener("click", () => {
+        const userMessage = userInput.value.trim();
+        if (userMessage !== "") {
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("chat-message");
+            messageDiv.innerText = `You: ${userMessage}`;
+            chatHistory.appendChild(messageDiv);
+            userInput.value = "";
+
+            // Scroll to the latest message
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            // Simulate bot response
+            setTimeout(() => {
+                const botMessageDiv = document.createElement("div");
+                botMessageDiv.classList.add("chat-message");
+                botMessageDiv.innerText = `Bot: How can I help you with ${userMessage}?`;
+                chatHistory.appendChild(botMessageDiv);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }, 1000);
+        }
+    });
+});
+</script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>School Name</h1>
+            </div>
+            <nav>
+                <ul>
+             <li><a href="home page.html">Home</a></li>
+             <li><a href="register and login .html">Login</a></li>
+             <li><a href="register and login .html">Register</a></li>
+             <li><a href="annunsments.html">Announcements</a></li>
+			 <li><a href="about page.html">About</a></li>
+			 <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>We are here to assist you. Reach out to us using any of the following methods:</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>Landline: +123 456 7890</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p>Mobile: +987 654 3210</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email: info@school.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-facebook"></i>
+                    <p><a href="https://facebook.com/schoolpage" target="_blank">Facebook Page</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-twitter"></i>
+                    <p><a href="https://twitter.com/school" target="_blank">@school</a></p>
+                </div>
+            </div>
+
+            <!-- Animated Chatbot -->
+            <div class="chatbot-container">
+                <h3>Need Assistance? Chat with us!</h3>
+                <div class="chatbot">
+                    <div class="chat-window" id="chat-window">
+                        <div class="chat-history" id="chat-history">
+                            <div class="chat-message">Welcome! How can I assist you today?</div>
+                        </div>
+                        <input type="text" id="user-input" placeholder="Type your message..." />
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 School Name. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://facebook.com/schoolpage" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/school" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements</title>
+    <style>
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Section */
+header {
+    background-color: #333;
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+header nav ul li a:hover {
+    color: #ff5722;
+}
+
+/* About Page Section */
+.about {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.about h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.about-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Announcements Section */
+.announcements {
+    padding: 50px 0;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.announcements h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.announcement {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.announcement h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.announcement p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.edit-btn {
+    padding: 8px 15px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #e64a19;
+}
+
+/* Modal for Editing Announcements */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+}
+
+#admin-password, #announcement-text {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#save-changes, #close-modal {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-changes:hover, #close-modal:hover {
+    background-color: #e64a19;
+}
+
+/* Modal visibility */
+.modal.open {
+    display: block;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer .social-icons a {
+    color: white;
+    margin-left: 15px;
+    font-size: 1.5rem;
+}
+
+footer .social-icons a:hover {
+    color: #ff5722;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-card {
+        width: 90%;
+    }
+
+    .announcement {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>School Announcements</h1>
+            </div>
+            <nav>
+                <ul>
+             <li><a href="home page.html">Home</a></li>
+             <li><a href="register and login .html">Login</a></li>
+             <li><a href="register and login .html">Register</a></li>
+             <li><a href="annunsments.html">Announcements</a></li>
+			 <li><a href="about page.html">About</a></li>
+			 <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Announcements Section -->
+    <section class="announcements">
+        <div class="container">
+            <h2>Latest Announcements</h2>
+            <div class="announcement" id="announcement-1">
+                <h3>School Reopening</h3>
+                <p>We are excited to announce that the school will reopen on September 1st.</p>
+                <button class="edit-btn" data-id="1">Edit Announcement</button>
+            </div>
+            <div class="announcement" id="announcement-2">
+                <h3>Sports Day</h3>
+                <p>Our annual sports day will take place on October 10th. Get ready for some fun and competition!</p>
+                <button class="edit-btn" data-id="2">Edit Announcement</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Announcement Modal -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-content">
+            <h3>Edit Announcement</h3>
+            <input type="password" id="admin-password" placeholder="Enter Password">
+            <textarea id="announcement-text" rows="5"></textarea>
+            <button id="save-changes">Save Changes</button>
+            <button id="close-modal">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 School Announcements. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>document.querySelectorAll('.edit-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const announcementId = button.getAttribute('data-id');
+        const modal = document.getElementById('edit-modal');
+        const textArea = document.getElementById('announcement-text');
+        const announcement = document.querySelector(`#announcement-${announcementId} p`);
+
+        // Set current announcement text in the modal
+        textArea.value = announcement.textContent;
+
+        // Open the modal
+        modal.classList.add('open');
+
+        // Save changes
+        document.getElementById('save-changes').onclick = function () {
+            const password = document.getElementById('admin-password').value;
+            if (password === '1234') {
+                // Update announcement text
+                announcement.textContent = textArea.value;
+                alert('Announcement updated successfully!');
+                modal.classList.remove('open');
+            } else {
+                alert('Incorrect password.');
+            }
+        };
+
+        // Close the modal
+        document.getElementById('close-modal').onclick = function () {
+            modal.classList.remove('open');
+        };
+    });
+});
+</script>
+</body>
+</html>

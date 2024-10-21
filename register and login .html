@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    margin: 20px auto;
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+/* Basic styles from before */
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-section h3 {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+.notifications {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+             <li><a href="home page.html">Home</a></li>
+             <li><a href="register and login .html">Login</a></li>
+             <li><a href="register and login .html">Register</a></li>
+             <li><a href="annunsments.html">Announcements</a></li>
+			 <li><a href="about page.html">About</a></li>
+			 <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Registration Form -->
+    <section id="register">
+        <h2>Create Your Account</h2>
+        <form id="registerForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="role">Role:</label>
+            <select id="role">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <!-- Login Form -->
+    <section id="login">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="loginName">Name:</label>
+            <input type="text" id="loginName" required>
+
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required>
+
+            <button type="submit" >Login</button>
+        </form>
+    </section>
+
+    <!-- Profile Dashboard -->
+<section id="dashboard" style="display: none;">
+        <h2>Welcome, <span id="userName"></span>!</h2>
+        <p>You are logged in as <span id="userRole"></span>.</p>
+		<button type="submit" > <a href="dashbord page.html">Edit</a></button>
+        <button id="logoutButton">Logout</button>
+    </section>
+
+    <script>document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById("name").value;
+    const role = document.getElementById("role").value;
+    const password = document.getElementById("password").value;
+    
+    if (name && role && password) {
+        // Store user data in localStorage (This is just a basic example)
+        localStorage.setItem("user", JSON.stringify({ name, role, password }));
+        alert("Registration successful!");
+    } else {
+        alert("Please fill in all fields");
+    }
+});
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const loginName = document.getElementById("loginName").value;
+    const loginPassword = document.getElementById("loginPassword").value;
+    
+    const user = JSON.parse(localStorage.getItem("user"));
+    
+    if (user && user.name === loginName && user.password === loginPassword) {
+        document.getElementById("dashboard").style.display = "block";
+        document.getElementById("userName").textContent = user.name;
+        document.getElementById("userRole").textContent = user.role;
+        document.getElementById("register").style.display = "none";
+        document.getElementById("login").style.display = "none";
+    } else {
+        alert("Incorrect name or password");
+    }
+});
+
+document.getElementById("logoutButton").addEventListener("click", function() {
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("register").style.display = "block";
+    document.getElementById("login").style.display = "block";
+});
+// Fetch user data from localStorage
+document.addEventListener("DOMContentLoaded", function() {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    // Display user info
+    document.getElementById("userName").textContent = user.name;
+    document.getElementById("userProfileName").textContent = user.name;
+    document.getElementById("userProfileRole").textContent = user.role;
+
+    // Show specific section based on user role
+    if (user.role === "student") {
+        document.getElementById("studentSection").style.display = "block";
+    } else if (user.role === "teacher") {
+        document.getElementById("teacherSection").style.display = "block";
+    }
+});
+
+// Edit profile functionality
+document.getElementById("editProfileButton").addEventListener("click", function() {
+    document.getElementById("editProfileSection").style.display = "block";
+});
+
+document.getElementById("saveProfileButton").addEventListener("click", function() {
+    const newEmail = document.getElementById("newEmail").value;
+    const profileImage = document.getElementById("profileImage").files[0];
+
+    if (newEmail) {
+        document.getElementById("userEmail").textContent = newEmail;
+    }
+
+    if (profileImage) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById("profilePicture").src = e.target.result;
+        };
+        reader.readAsDataURL(profileImage);
+    }
+
+    alert("Profile updated successfully!");
+    document.getElementById("editProfileSection").style.display = "none";
+});
+
+// Add new course for teachers
+document.getElementById("addCourseButton").addEventListener("click", function() {
+    document.getElementById("addCourseSection").style.display = "block";
+});
+
+document.getElementById("saveCourseButton").addEventListener("click", function() {
+    const newCourse = document.getElementById("newCourse").value;
+
+    if (newCourse) {
+        const courseList = document.getElementById("teacherCourseList");
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${newCourse}</strong> - <button>Edit</button> <button>Delete</button>`;
+        courseList.appendChild(li);
+        alert("Course added successfully!");
+    }
+
+    document.getElementById("addCourseSection").style.display = "none";
+});
+
+// Logout functionality
+document.getElementById("logoutButton").addEventListener("click", function() {
+    localStorage.removeItem("user");
+    window.location.href = "login.html";  // Redirect to login page
+});
+
+</script>
+</body>
+</html>
